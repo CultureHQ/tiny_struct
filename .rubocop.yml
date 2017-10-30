@@ -1,0 +1,9 @@
+AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  TargetRubyVersion: 2.4
+  Exclude:
+  - 'vendor/**/*'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

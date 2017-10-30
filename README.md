@@ -1,5 +1,7 @@
 # TinyStruct
 
+[![Build Status](https://travis-ci.org/kddeisz/tiny_struct.svg?branch=master)](https://travis-ci.org/kddeisz/tiny_struct)
+
 Build `Struct` classes that do less. `TinyStruct` is a very similar concept to `Struct` classes in Ruby, with a few key differences:
 
 * In `Struct` classes all parameters are optional, in `TinyStruct` they are all required.
@@ -26,11 +28,32 @@ Or install it yourself as:
 
 ## Usage
 
+### Basic usage
+
+Build `TinyStruct` classes like so:
+
 ```ruby
 class User < TinyStruct.new(:first_name, :last_name)
   def full_name
     "#{first_name} #{last_name}"
   end
+end
+```
+
+Now you can build `User` objects like so:
+
+```ruby
+user = User.new('Kevin', 'Deisz')
+# => #<User @first_name="Kevin" @last_name="Deisz">
+```
+
+### Configuration
+
+`TinyStruct` by default will cache each of the classes that is constructed through `TinyStruct::new` in order to deduplicate potential new classes with those that are already constructed. This cache is by default stored in memory. If you're worried about memory performance and don't mind taking a hit to performance, you can turn this off (and have it instead just loop through `ObjectSpace`) by doing the following before you configure anything:
+
+```ruby
+TinyStruct.configure do |config|
+  config.cache = false
 end
 ```
 
