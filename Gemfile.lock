@@ -1,0 +1,22 @@
+PATH
+  remote: .
+  specs:
+    simple_struct (0.0.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    minitest (5.10.3)
+    rake (12.2.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.16.a)
+  minitest (~> 5.10)
+  rake (~> 12.0)
+  simple_struct!
+
+BUNDLED WITH
+   1.16.0.pre.3
