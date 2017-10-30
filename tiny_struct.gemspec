@@ -1,15 +1,15 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'simple_struct/version'
+require 'tiny_struct/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'simple_struct'
-  spec.version       = SimpleStruct::VERSION
+  spec.name          = 'tiny_struct'
+  spec.version       = TinyStruct::VERSION
   spec.authors       = ['Kevin Deisz']
   spec.email         = ['kevin.deisz@gmail.com']
 
   spec.summary       = 'Build Struct classes that do less.'
-  spec.homepage      = 'https://github.com/kddeisz/simple_struct'
+  spec.homepage      = 'https://github.com/kddeisz/tiny_struct'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|

@@ -1,23 +1,21 @@
-require 'simple_struct/version'
+require 'tiny_struct/version'
 
-module SimpleStruct
+class TinyStruct
   ATTRIBUTE_PATTERN = /\A[a-z][a-zA-Z0-9_]*\z/
 
-  class Struct
-    def eql?(other)
-      attributes.zip(other.attributes).all? { |a, b| a == b }
-    end
-    alias == eql?
+  def eql?(other)
+    attributes.zip(other.attributes).all? { |a, b| a == b }
+  end
+  alias == eql?
 
-    def inspect
-      pairs = attributes.map { |name| "#{name}=#{public_send(name).inspect}" }
-      "#<SimpleStruct #{pairs.join(' ')}>"
-    end
-    alias to_s inspect
+  def inspect
+    pairs = attributes.map { |name| "@#{name}=#{public_send(name).inspect}" }
+    "#<#{self.class.name || 'TinyStruct'} #{pairs.join(' ')}>"
+  end
+  alias to_s inspect
 
-    def self.attributes
-      []
-    end
+  def self.attributes
+    []
   end
 
   class << self
@@ -28,7 +26,7 @@ module SimpleStruct
         end
 
       if !success
-        raise ArgumentError, 'arguments to SimpleStruct::new must be valid ' \
+        raise ArgumentError, 'arguments to TinyStruct::new must be valid ' \
                              'attribute names represented as symbols'
       end
 
@@ -38,8 +36,11 @@ module SimpleStruct
     private
 
     def define_class(attributes)
-      Class.new(Struct) do
+      Class.new(TinyStruct) do
         attr_reader(*attributes)
+
+        define_singleton_method(:new, Object.method(:new))
+        define_singleton_method(:attributes) { attributes }
 
         define_method(:initialize) do |*arguments|
           if attributes.size != arguments.size
@@ -53,15 +54,13 @@ module SimpleStruct
           end
         end
 
-        define_singleton_method(:attributes) { attributes }
         define_method(:attributes) { attributes }
-
         protected :attributes
       end
     end
 
     def find_class(attributes)
-      ObjectSpace.each_object(Struct.singleton_class).detect do |clazz|
+      ObjectSpace.each_object(TinyStruct.singleton_class).detect do |clazz|
         clazz.attributes == attributes
       end
     end

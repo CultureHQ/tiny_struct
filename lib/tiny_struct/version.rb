@@ -1,3 +1,3 @@
-module SimpleStruct
+class TinyStruct
   VERSION = '0.0.1'
 end

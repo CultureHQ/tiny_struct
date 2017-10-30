@@ -1,19 +1,19 @@
-# SimpleStruct
+# TinyStruct
 
-Build `Struct` classes that do less. `SimpleStruct` is a very similar concept to `Struct` classes in Ruby, with a few key differences:
+Build `Struct` classes that do less. `TinyStruct` is a very similar concept to `Struct` classes in Ruby, with a few key differences:
 
-* In `Struct` classes all parameters are optional, in `SimpleStruct` they are all required.
-* In `Struct` classes each parameter is accessible through an `attr_accessor`, in `SimpleStruct` they are accessible through `attr_reader`s.
-* In `Struct` classes you can call all kinds of querying methods on the objects as if they were an enumerable of the various values they represent (e.g., `to_a`, `to_h`, `size`, `[]`, `values_at`, etc.), in `SimpleStruct` none of these methods are defined.
+* In `Struct` classes all parameters are optional, in `TinyStruct` they are all required.
+* In `Struct` classes each parameter is accessible through an `attr_accessor`, in `TinyStruct` they are accessible through `attr_reader`s.
+* In `Struct` classes you can call all kinds of querying methods on the objects as if they were an enumerable of the various values they represent (e.g., `to_a`, `to_h`, `size`, `[]`, `values_at`, etc.), in `TinyStruct` none of these methods are defined.
 
-Use `Struct` if you need the flexibility and extra query methods provided by the constructor. If not, consider using `SimpleStruct`.
+Use `Struct` if you need the flexibility and extra query methods provided by the constructor. If not, consider using `TinyStruct`.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'simple_struct'
+gem 'tiny_struct'
 ```
 
 And then execute:
@@ -22,12 +22,12 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install simple_struct
+    $ gem install tiny_struct
 
 ## Usage
 
 ```ruby
-class User < SimpleStruct.new(:first_name, :last_name)
+class User < TinyStruct.new(:first_name, :last_name)
   def full_name
     "#{first_name} #{last_name}"
   end
@@ -42,7 +42,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/kddeisz/simple_struct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kddeisz/tiny_struct.
 
 ## License
 

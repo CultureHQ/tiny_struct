@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'bundler/setup'
-require 'simple_struct'
+require 'tiny_struct'
 
 require 'irb'
 IRB.start(__FILE__)

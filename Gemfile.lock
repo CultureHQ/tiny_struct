@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    simple_struct (0.0.1)
+    tiny_struct (0.0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -16,7 +16,7 @@ DEPENDENCIES
   bundler (~> 1.16.a)
   minitest (~> 5.10)
   rake (~> 12.0)
-  simple_struct!
+  tiny_struct!
 
 BUNDLED WITH
    1.16.0.pre.3
