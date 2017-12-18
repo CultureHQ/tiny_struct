@@ -15,7 +15,7 @@ GEM
       ast (~> 2.3)
     powerpack (0.1.1)
     rainbow (3.0.0)
-    rake (12.2.1)
+    rake (12.3.0)
     rubocop (0.52.0)
       parallel (~> 1.10)
       parser (>= 2.4.0.2, < 3.0)
@@ -37,7 +37,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.16.a)
   minitest (~> 5.10)
-  rake (~> 12.2)
+  rake (~> 12.3)
   rubocop (~> 0.52)
   simplecov (~> 0.15)
   tiny_struct!
