@@ -6,17 +6,17 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    ast (2.3.0)
+    ast (2.4.0)
     docile (1.1.5)
     json (2.1.0)
-    minitest (5.10.3)
+    minitest (5.11.3)
     parallel (1.12.1)
     parser (2.4.0.2)
       ast (~> 2.3)
     powerpack (0.1.1)
     rainbow (3.0.0)
     rake (12.3.0)
-    rubocop (0.52.0)
+    rubocop (0.52.1)
       parallel (~> 1.10)
       parser (>= 2.4.0.2, < 3.0)
       powerpack (~> 0.1)
@@ -35,12 +35,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.16.a)
-  minitest (~> 5.10)
+  bundler (~> 1.16)
+  minitest (~> 5.11)
   rake (~> 12.3)
   rubocop (~> 0.52)
   simplecov (~> 0.15)
   tiny_struct!
 
 BUNDLED WITH
-   1.16.0
+   1.16.1
