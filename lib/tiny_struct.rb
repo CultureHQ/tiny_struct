@@ -1,5 +1,3 @@
-require 'tiny_struct/memory_cache'
-require 'tiny_struct/object_space_cache'
 require 'tiny_struct/version'
 
 # A class for encompassing the simple pattern of required and ordered parameters
@@ -15,6 +13,8 @@ require 'tiny_struct/version'
 # `last_name`, as well as having an initializer that sets those values.
 class TinyStruct
   ATTRIBUTE_PATTERN = /\A[a-z][a-zA-Z0-9_]*\z/.freeze
+
+  VERSION = '0.0.1'.freeze
 
   # `true` if the members of the other `TinyStruct` instance are equal to
   # the values of this `TinyStruct` instance.
@@ -35,8 +35,6 @@ class TinyStruct
   alias to_s inspect
 
   class << self
-    attr_accessor :cache
-
     # Builds a new `TinyStruct` subclass based on the given members. The
     # given members must be symbols that represents names that could
     # otherwise be used as argument names.
@@ -52,16 +50,6 @@ class TinyStruct
       end
 
       class_cache[members] ||= define_class(members)
-    end
-
-    # Yields `TinyStruct` to a block such that you can toggle configuration
-    # settings. For example:
-    #
-    #     TinyStruct.configure do |config|
-    #       config.cache = false
-    #     end
-    def configure
-      yield self
     end
 
     private
@@ -93,9 +81,7 @@ class TinyStruct
     end
 
     def class_cache
-      @class_cache ||= cache ? MemoryCache.new : ObjectSpaceCache.new
+      @class_cache ||= {}
     end
   end
-
-  self.cache = true
 end
