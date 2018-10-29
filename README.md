@@ -43,18 +43,8 @@ end
 Now you can build `User` objects like so:
 
 ```ruby
-user = User.new('Kevin', 'Deisz')
-# => #<User @first_name="Kevin" @last_name="Deisz">
-```
-
-### Configuration
-
-`TinyStruct` by default will cache each of the classes that is constructed through `TinyStruct::new` in order to deduplicate potential new classes with those that are already constructed. This cache is by default stored in memory. If you're worried about memory performance and don't mind taking a hit to performance, you can turn this off (and have it instead just loop through `ObjectSpace`) by doing the following before you configure anything:
-
-```ruby
-TinyStruct.configure do |config|
-  config.cache = false
-end
+user = User.new('Harry', 'Potter')
+# => #<User @first_name="Harry" @last_name="Potter">
 ```
 
 ## Development
