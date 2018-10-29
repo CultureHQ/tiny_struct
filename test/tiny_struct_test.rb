@@ -1,9 +1,5 @@
 require 'test_helper'
 
-TinyStruct.configure do |config|
-  config.cache = true
-end
-
 class TinyStructTest < Minitest::Test
   class Foo < TinyStruct.new(:foo)
     def decorated
@@ -54,28 +50,5 @@ class TinyStructTest < Minitest::Test
     starting = size.call
     TinyStruct.new(:foo)
     assert_equal starting, size.call
-  end
-
-  def test_works_with_object_space
-    size = lambda {
-      ObjectSpace.each_object(TinyStruct.singleton_class).to_a.size
-    }
-
-    starting = size.call
-    with_object_space_cache { TinyStruct.new(:foo) }
-    assert_equal starting, size.call
-  end
-
-  private
-
-  def with_object_space_cache
-    previous_cache = TinyStruct.instance_variable_get(:@class_cache)
-    new_cache = TinyStruct::ObjectSpaceCache.new
-
-    TinyStruct.instance_variable_set(:@class_cache, new_cache)
-
-    yield
-  ensure
-    TinyStruct.instance_variable_set(:@class_cache, previous_cache)
   end
 end
