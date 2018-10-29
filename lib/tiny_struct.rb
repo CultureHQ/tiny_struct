@@ -14,7 +14,7 @@ require 'tiny_struct/version'
 # This will create a class that now has `attr_reader`s for `first_name` and
 # `last_name`, as well as having an initializer that sets those values.
 class TinyStruct
-  ATTRIBUTE_PATTERN = /\A[a-z][a-zA-Z0-9_]*\z/
+  ATTRIBUTE_PATTERN = /\A[a-z][a-zA-Z0-9_]*\z/.freeze
 
   # `true` if the members of the other `TinyStruct` instance are equal to
   # the values of this `TinyStruct` instance.
