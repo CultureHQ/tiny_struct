@@ -14,8 +14,6 @@ require 'tiny_struct/version'
 class TinyStruct
   ATTRIBUTE_PATTERN = /\A[a-z][a-zA-Z0-9_]*\z/.freeze
 
-  VERSION = '0.0.1'.freeze
-
   # `true` if the members of the other `TinyStruct` instance are equal to
   # the values of this `TinyStruct` instance.
   def eql?(other)
