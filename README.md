@@ -1,6 +1,6 @@
 # TinyStruct
 
-[![Build Status](https://travis-ci.org/kddeisz/tiny_struct.svg?branch=master)](https://travis-ci.org/kddeisz/tiny_struct)
+[![Build Status](https://travis-ci.org/CultureHQ/tiny_struct.svg?branch=master)](https://travis-ci.org/CultureHQ/tiny_struct)
 
 Build `Struct` classes that do less. `TinyStruct` is a very similar concept to `Struct` classes in Ruby, with a few key differences:
 
@@ -55,7 +55,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/kddeisz/tiny_struct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/CultureHQ/tiny_struct.
 
 ## License
 

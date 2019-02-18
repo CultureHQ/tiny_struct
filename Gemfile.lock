@@ -40,9 +40,9 @@ DEPENDENCIES
   bundler (~> 2.0)
   minitest (~> 5.11)
   rake (~> 12.3)
-  rubocop (~> 0.63)
+  rubocop (~> 0.64)
   simplecov (~> 0.15)
   tiny_struct!
 
 BUNDLED WITH
-   2.0.0
+   2.0.1

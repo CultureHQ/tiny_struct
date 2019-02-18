@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['kevin.deisz@gmail.com']
 
   spec.summary       = 'Build Struct classes that do less.'
-  spec.homepage      = 'https://github.com/kddeisz/tiny_struct'
+  spec.homepage      = 'https://github.com/CultureHQ/tiny_struct'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
@@ -22,6 +22,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'minitest', '~> 5.11'
   spec.add_development_dependency 'rake', '~> 12.3'
-  spec.add_development_dependency 'rubocop', '~> 0.63'
+  spec.add_development_dependency 'rubocop', '~> 0.64'
   spec.add_development_dependency 'simplecov', '~> 0.15'
 end
