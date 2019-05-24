@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'tiny_struct/version'
 
 # A class for encompassing the simple pattern of required and ordered parameters
@@ -37,32 +39,18 @@ class TinyStruct
     # given members must be symbols that represents names that could
     # otherwise be used as argument names.
     def new(*members)
-      success =
-        members.all? do |attribute|
-          attribute.is_a?(Symbol) && attribute.match?(ATTRIBUTE_PATTERN)
-        end
+      validate(members)
 
-      unless success
-        raise ArgumentError, 'arguments to TinyStruct::new must be valid ' \
-                             'attribute names represented as symbols'
-      end
-
-      class_cache[members] ||= define_class(members)
-    end
-
-    private
-
-    def define_class(members)
-      clazz =
+      class_cache[members] ||=
         Class.new(TinyStruct) do
           attr_reader(*members)
           define_singleton_method(:new, Object.method(:new))
           define_singleton_method(:members) { members }
+          define_initialize_method(self, members)
         end
-
-      define_initialize_method(clazz, members)
-      clazz
     end
+
+    private
 
     def define_initialize_method(clazz, members)
       clazz.send(:define_method, :initialize) do |*arguments|
@@ -80,6 +68,15 @@ class TinyStruct
 
     def class_cache
       @class_cache ||= {}
+    end
+
+    def validate(members)
+      members.each do |attribute|
+        next if attribute.is_a?(Symbol) && attribute.match?(ATTRIBUTE_PATTERN)
+
+        raise ArgumentError, 'arguments to TinyStruct::new must be valid ' \
+                             'attribute names represented as symbols'
+      end
     end
   end
 end
