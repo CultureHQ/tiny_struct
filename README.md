@@ -1,6 +1,6 @@
 # TinyStruct
 
-[![Build Status](https://travis-ci.org/CultureHQ/tiny_struct.svg?branch=master)](https://travis-ci.org/CultureHQ/tiny_struct)
+[![Gem Version](https://img.shields.io/gem/v/tiny_struct.svg)](https://github.com/CultureHQ/tiny_struct)
 
 Often we want simple Ruby classes that follow the pattern of accepting data as arguments to the initializer and storing them as `attr_readers`. For example:
 
