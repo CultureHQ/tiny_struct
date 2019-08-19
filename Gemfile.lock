@@ -43,7 +43,7 @@ DEPENDENCIES
   bundler-audit (~> 0.6)
   minitest (~> 5.11)
   rake (~> 12.3)
-  rubocop (~> 0.71)
+  rubocop (~> 0.72)
   simplecov (~> 0.15)
   tiny_struct!
 
