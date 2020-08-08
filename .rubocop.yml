@@ -5,5 +5,8 @@ AllCops:
   Exclude:
   - 'vendor/**/*'
 
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+
 Layout/LineLength:
   Max: 80
